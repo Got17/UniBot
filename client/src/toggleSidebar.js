@@ -26,20 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Close Sidebar when clicking the close button
     closeBtn.addEventListener("click", toggleSidebar);
-});
 
-function fixContainerHeight() {
-    const container = document.querySelector('.container');
+    function fixContainerHeight() {
+        const container = document.querySelector('.container');
+        const chatBox = document.querySelector('.chat-box');
+        const chatInput = document.querySelector('.chat-input-container');
     
-    let viewportHeight = window.innerHeight;
-
-    if (window.visualViewport) {
-        viewportHeight = window.visualViewport.height;
+        // Get correct viewport height
+        let viewportHeight = window.innerHeight;
+    
+        // Fix for Safari visual viewport issues
+        if (window.visualViewport) {
+            viewportHeight = window.visualViewport.height;
+        }
+    
+        // Apply height fixes
+        container.style.height = `${viewportHeight}px`;
+        container.style.minHeight = `${viewportHeight}px`;
+    
+        // Ensure chat input is visible
+        chatInput.style.bottom = `${Math.max(16, window.visualViewport?.height * 0.02)}px`;
+    
+        // Adjust chat-box height dynamically
+        const headerHeight = document.querySelector('.chat-header').offsetHeight;
+        const inputHeight = chatInput.offsetHeight;
+        chatBox.style.maxHeight = `${viewportHeight - headerHeight - inputHeight - 20}px`;
     }
-
-    container.style.height = `${viewportHeight}px`;
-    container.style.minHeight = `${viewportHeight}px`;
-}
-
-window.addEventListener('resize', fixContainerHeight);
-window.addEventListener('load', fixContainerHeight);
+    
+    // Run on load and resize
+    window.addEventListener('resize', fixContainerHeight);
+    window.addEventListener('load', fixContainerHeight);
+});
