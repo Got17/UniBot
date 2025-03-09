@@ -41,7 +41,7 @@ body {
 }
 
 .close-btn {
-    @apply absolute top-3 left-3 text-center text-gray-700 px-2 py-1 rounded-full transition duration-300 ease-in-out hover:bg-gray-900 hover:text-gray-200;
+    @apply absolute top-3 left-3 text-center text-gray-700 px-3 py-1 rounded-full transition duration-300 ease-in-out hover:bg-gray-900 hover:text-gray-200;
 }
 
 .btn {
@@ -112,7 +112,7 @@ body {
 }
 
 .menu-btn {
-    @apply z-50 p-3 text-center px-2 py-[6px] rounded-full transition duration-300 ease-in-out hover:bg-gray-200 hover:text-gray-900;
+    @apply z-50 p-3 text-center px-3 py-[6px] rounded-full transition duration-300 ease-in-out hover:bg-gray-200 hover:text-gray-900;
 }
 
 .help-btn {
