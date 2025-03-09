@@ -22,7 +22,7 @@ html {
     @apply flex w-full overflow-hidden border max-w-[100vw];
     height: 100vh; 
     min-height: 100vh;
-    height: -webkit-fill-available; 
+    height: 100dvh;
 }
 
 /* Sidebar */

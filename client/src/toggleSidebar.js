@@ -32,28 +32,26 @@ document.addEventListener("DOMContentLoaded", function () {
         const chatBox = document.querySelector('.chat-box');
         const chatInput = document.querySelector('.chat-input-container');
     
-        // Get correct viewport height
-        let viewportHeight = window.innerHeight;
+        // Get correct viewport height dynamically
+        let viewportHeight = document.documentElement.clientHeight; // More reliable than window.innerHeight
     
-        // Fix for Safari visual viewport issues
         if (window.visualViewport) {
-            viewportHeight = window.visualViewport.height;
+            viewportHeight = window.visualViewport.height; // Fix for Safari's shrinking viewport
         }
     
-        // Apply height fixes
+        // Apply fixed height
         container.style.height = `${viewportHeight}px`;
         container.style.minHeight = `${viewportHeight}px`;
     
-        // Ensure chat input is visible
-        chatInput.style.bottom = `${Math.max(16, window.visualViewport?.height * 0.02)}px`;
-    
-        // Adjust chat-box height dynamically
+        // Adjust chat-box height dynamically to prevent cut-offs
         const headerHeight = document.querySelector('.chat-header').offsetHeight;
         const inputHeight = chatInput.offsetHeight;
         chatBox.style.maxHeight = `${viewportHeight - headerHeight - inputHeight - 20}px`;
     }
     
-    // Run on load and resize
+    // Run fixes on page load, resize, and orientation change
     window.addEventListener('resize', fixContainerHeight);
     window.addEventListener('load', fixContainerHeight);
+    window.addEventListener('orientationchange', fixContainerHeight);
+    
 });
