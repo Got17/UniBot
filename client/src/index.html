@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <script type="module" src="./toggleSidebar.js"></script>
+    <script type="module" src="./calendar.js"></script>
     <title>UniBot</title>
 </head>
 <body>
@@ -27,14 +28,20 @@
                 <h3>Useful Links</h3>
                 <ul>
                     <li>
+                        <a href="https://www.uniduna.hu/" target="_blank"> 
+                            <i class="fa-solid fa-award"></i>
+                            <span class="link-element">University</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="https://nappw.dfad.duf.hu/hallgato_ng/login" target="_blank"> 
-                            <i class="fa-solid fa-award w-2 h-2 mr-2"></i>
+                            <i class="fa-solid fa-award"></i>
                             <span class="link-element">Neptun</span>
                         </a>
                     </li>
                     <li>
                         <a href="https://v39.moodle.uniduna.hu/login/index.php" target="_blank"> 
-                            <i class="fa-solid fa-award w-2 h-2 mr-2"></i>
+                            <i class="fa-solid fa-award"></i>
                             <span class="link-element">Moodle</span>
                         </a>
                     </li>
@@ -43,22 +50,18 @@
 
             <div class="calendar">
                 <div class="calender-header">
-                    <div>February 2025</div>
-                    <div>
-                        <i class="fa-solid fa-angle-left cursor-pointer hover:bg-slate-100"></i>
-                        <i class="fa-solid fa-angle-right mx-1 cursor-pointer hover:bg-slate-100"></i>
-                    </div>
+                    <button id="prev-month" class="prev-btn">
+                        <i class="fa-solid fa-angle-left cursor-pointer hover:bg-gray-200"></i>
+                    </button>
+                    <div id="calendar-title" class="font-bold text-base"></div>
+                    <button id="next-month" class="next-btn">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
                 </div>
                 <div class="weekdays">
                     <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
                 </div>
-                <div class="days">
-                    <span>29</span><span>30</span><span>31</span><span>1</span><span>2</span><span>3</span><span>4</span>
-                    <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
-                    <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
-                    <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
-                    <span>26</span><span>27</span><span>28</span><span>1</span><span>2</span><span>3</span><span>4</span>
-                </div>
+                <div id="calendar-days" class="days"></div>
             </div>
 
         </aside>

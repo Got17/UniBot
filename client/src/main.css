@@ -78,16 +78,20 @@ body {
     @apply text-base font-bold flex justify-between items-center mb-3;
 }
 
+.prev-btn, .next-btn {
+    @apply cursor-pointer hover:bg-gray-200 p-2 rounded;
+}
+
 .weekdays, .days {
-    @apply grid grid-cols-7 gap-1 text-sm text-gray-600;
+    @apply grid grid-cols-7 text-center text-sm;
 }
 
-.weekdays span {
-    @apply font-semibold;
+.weekdays {
+    @apply font-semibold text-gray-700;
 }
 
-.days span {
-    @apply p-2 text-center rounded-md hover:bg-gray-200 transition duration-200 cursor-pointer ;
+.days {
+    @apply gap-1 text-sm;
 }
 
 /* Chat Window */
