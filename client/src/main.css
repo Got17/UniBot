@@ -40,7 +40,7 @@ html, body {
 }
 
 .close-btn {
-    @apply absolute top-5 left-5;
+    @apply absolute top-3 left-3 text-center text-gray-700 px-2 py-1 rounded-full transition duration-300 ease-in-out hover:bg-gray-900 hover:text-gray-200;
 }
 
 .btn {
@@ -104,7 +104,7 @@ html, body {
 }
 
 .menu-btn {
-    @apply z-50 p-3;
+    @apply z-50 p-3 text-center px-2 py-[6px] rounded-full transition duration-300 ease-in-out hover:bg-gray-200 hover:text-gray-900;
 }
 
 .help-btn {
@@ -123,7 +123,7 @@ html, body {
 }
 
 .user {
-    @apply justify-end text-right;
+    @apply justify-end text-left;
 }
 
 .bot {
@@ -149,6 +149,8 @@ html, body {
 /* Chat Input */
 .chat-input-container {
     @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[600px] px-4;
+    bottom: env(safe-area-inset-bottom, 16px); /* Fixes Safari bottom overlap */
+    padding-bottom: env(safe-area-inset-bottom, 16px); /* Extra padding for safety */
 }
 
 .chat-input {
