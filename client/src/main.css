@@ -9,12 +9,6 @@
 
 body {
     @apply bg-gray-100;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-}
-
-html {
-    height: -webkit-fill-available;
 }
 
 /* Container */
@@ -22,7 +16,8 @@ html {
     @apply flex w-full overflow-hidden border max-w-[100vw];
     height: 100vh; 
     min-height: 100vh;
-    height: 100dvh;
+    height: 100svh;
+    min-height: 100svh;
 }
 
 /* Sidebar */
@@ -98,6 +93,7 @@ html {
 .chat-window {
     @apply flex-1 flex w-full h-screen flex-col bg-white shadow-lg rounded-lg overflow-hidden relative z-0;
     min-height: 100vh;
+    min-height: 100svh;
 }
 
 /* Chat Header */
@@ -121,6 +117,7 @@ html {
 .chat-box {
     @apply flex-1 overflow-y-auto px-4 py-6  space-y-4;
     max-height: calc(100vh - 140px);
+    max-height: calc(100svh - 140px);
 }
 
 /* Chat Messages Bubbles */
