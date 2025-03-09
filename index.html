@@ -6,18 +6,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="/UniBot/assets/favicon-BWyIdJeL.ico">
     <title>UniBot</title>
-  <script type="module" crossorigin src="/UniBot/assets/index-BeMRvdIM.js"></script>
-  <link rel="stylesheet" crossorigin href="/UniBot/assets/index-Dz6S4yaX.css">
+  <script type="module" crossorigin src="/UniBot/assets/index-DsJBJ4S8.js"></script>
+  <link rel="stylesheet" crossorigin href="/UniBot/assets/index-Bd0oCKGy.css">
 </head>
 <body>
     <div class="container">
 
         <!-- Sidebar Section -->
         <aside class="sidebar open">
-            <button class="close-btn flex">
-                <i class="fa-solid fa-times text-2xl"></i> <!-- Close Icon -->
-            </button>
-
+            <div class="relative group">
+                <button class="close-btn flex">
+                    <i class="fa-solid fa-times text-2xl"></i> <!-- Close Icon -->
+                </button>
+                <span class="tooltip left-[25%] top-8">Close sidebar</span>
+            </div>
             <div class="mt-10">
                 <button class="btn">Study Office Opening hour</button>
                 <button class="btn">IRO Opening hour</button>
@@ -49,13 +51,19 @@
 
             <div class="calendar">
                 <div class="calender-header">
-                    <button id="prev-month" class="prev-btn">
-                        <i class="fa-solid fa-angle-left cursor-pointer hover:bg-gray-200"></i>
-                    </button>
+                    <div class="relative group">
+                        <button id="prev-month" class="prev-btn">
+                            <i class="fa-solid fa-angle-left cursor-pointer hover:bg-gray-200"></i>
+                        </button>
+                        <span class="tooltip left-1/2 bottom-full">Previous Month</span>
+                    </div>
                     <div id="calendar-title" class="font-bold text-base"></div>
-                    <button id="next-month" class="next-btn">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </button>
+                    <div class="relative group">
+                        <button id="next-month" class="next-btn">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+                        <span class="tooltip left-1/2 bottom-full">Next Month</span>
+                    </div>
                 </div>
                 <div class="weekdays">
                     <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
@@ -69,16 +77,22 @@
         <main class="chat-window">
 
             <div class="chat-header">
-                <!-- Hamburger Menu Button (Visible on Mobile) -->
-                <button class="menu-btn hidden">
-                    <i class="fa-solid fa-bars text-2xl"></i> <!-- FontAwesome Icon -->
-                </button>
+                <div class="relative group">
+                    <!-- Hamburger Menu Button (Visible on Mobile) -->
+                    <button class="menu-btn hidden">
+                        <i class="fa-solid fa-bars text-2xl"></i> <!-- FontAwesome Icon -->
+                    </button>
+                    <span class="tooltip left-16 top-10">Open Sidebar</span>
+                </div>
                 <div class="flex items-center justify-center">
                     <img class="w-[40px] h-[40px] mr-4" src="/UniBot/assets/duna-logo-Pg5k2MDd.png" alt="uniduna-logo">
                     <span class="text-lg font-semibold sm:hidden">UniBot</span> <!-- Visible only on mobile -->
                     <span class="text-lg font-semibold hidden sm:inline">UniBot - a chatbot dedicated for student of UniDuna</span> <!-- Visible only on larger screens -->                
                 </div>
-                <button class="help-btn">?</button>
+                <div class="relative group">
+                    <button class="help-btn">?</button>
+                    <span class="tooltip left-1/2 top-full">Help</span>
+                </div>
             </div>
 
             <!-- Chat Messages (Scrollable) -->
@@ -115,7 +129,10 @@
                 <div class="chat-input">
                     <input type="text" placeholder="Message...">
                     <!-- <button class="voice-btn"><i class="fas fa-microphone"></i></button> -->
-                    <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                     <div class="relative group">
+                        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                        <span class="tooltip left-1/2 bottom-4">Send</span>
+                     </div>
                 </div>
             </div>
 
