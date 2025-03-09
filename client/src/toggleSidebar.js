@@ -33,7 +33,7 @@ function fixContainerHeight() {
     const viewportHeight = window.innerHeight;
 
     container.style.height = `${viewportHeight}px`;
-    ontainer.style.minHeight = `${viewportHeight}px`;
+    container.style.minHeight = `${viewportHeight}px`;
 }
 
 window.addEventListener('resize', fixContainerHeight);
