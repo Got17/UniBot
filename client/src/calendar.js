@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const dayElement = document.createElement("div");
             dayElement.textContent = day;
             dayElement.classList.add(
-                "p-3", "text-center", "rounded-md", "cursor-pointer", "transition", "duration-200"
+                "p-3", "m-auto", "text-center", "rounded-md", "cursor-pointer", "transition", "duration-200"
             );         
             
             
