@@ -15,10 +15,12 @@
 
         <!-- Sidebar Section -->
         <aside class="sidebar open">
-            <button class="close-btn flex">
-                <i class="fa-solid fa-times text-2xl"></i> <!-- Close Icon -->
-            </button>
-
+            <div class="relative group">
+                <button class="close-btn flex">
+                    <i class="fa-solid fa-times text-2xl"></i> <!-- Close Icon -->
+                </button>
+                <span class="tooltip left-[25%] top-8">Close sidebar</span>
+            </div>
             <div class="mt-10">
                 <button class="btn">Study Office Opening hour</button>
                 <button class="btn">IRO Opening hour</button>
@@ -50,13 +52,19 @@
 
             <div class="calendar">
                 <div class="calender-header">
-                    <button id="prev-month" class="prev-btn">
-                        <i class="fa-solid fa-angle-left cursor-pointer hover:bg-gray-200"></i>
-                    </button>
+                    <div class="relative group">
+                        <button id="prev-month" class="prev-btn">
+                            <i class="fa-solid fa-angle-left cursor-pointer hover:bg-gray-200"></i>
+                        </button>
+                        <span class="tooltip left-1/2 bottom-full">Previous Month</span>
+                    </div>
                     <div id="calendar-title" class="font-bold text-base"></div>
-                    <button id="next-month" class="next-btn">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </button>
+                    <div class="relative group">
+                        <button id="next-month" class="next-btn">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+                        <span class="tooltip left-1/2 bottom-full">Next Month</span>
+                    </div>
                 </div>
                 <div class="weekdays">
                     <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
@@ -70,16 +78,22 @@
         <main class="chat-window">
 
             <div class="chat-header">
-                <!-- Hamburger Menu Button (Visible on Mobile) -->
-                <button class="menu-btn hidden">
-                    <i class="fa-solid fa-bars text-2xl"></i> <!-- FontAwesome Icon -->
-                </button>
+                <div class="relative group">
+                    <!-- Hamburger Menu Button (Visible on Mobile) -->
+                    <button class="menu-btn hidden">
+                        <i class="fa-solid fa-bars text-2xl"></i> <!-- FontAwesome Icon -->
+                    </button>
+                    <span class="tooltip left-16 top-10">Open Sidebar</span>
+                </div>
                 <div class="flex items-center justify-center">
                     <img class="w-[40px] h-[40px] mr-4" src="./images/duna-logo.png" alt="uniduna-logo">
                     <span class="text-lg font-semibold sm:hidden">UniBot</span> <!-- Visible only on mobile -->
                     <span class="text-lg font-semibold hidden sm:inline">UniBot - a chatbot dedicated for student of UniDuna</span> <!-- Visible only on larger screens -->                
                 </div>
-                <button class="help-btn">?</button>
+                <div class="relative group">
+                    <button class="help-btn">?</button>
+                    <span class="tooltip left-1/2 top-full">Help</span>
+                </div>
             </div>
 
             <!-- Chat Messages (Scrollable) -->
@@ -116,7 +130,10 @@
                 <div class="chat-input">
                     <input type="text" placeholder="Message...">
                     <!-- <button class="voice-btn"><i class="fas fa-microphone"></i></button> -->
-                    <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                     <div class="relative group">
+                        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                        <span class="tooltip left-1/2 bottom-4">Send</span>
+                     </div>
                 </div>
             </div>
 
