@@ -27,3 +27,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close Sidebar when clicking the close button
     closeBtn.addEventListener("click", toggleSidebar);
 });
+
+function fixContainerHeight() {
+    const container = document.querySelector('.container');
+
+    // Use visualViewport height if available, otherwise fallback to innerHeight
+    const viewportHeight = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+
+    container.style.height = `${viewportHeight}px`;
+    container.style.minHeight = `${viewportHeight}px`;
+}
+
+// Run the function on load and resize
+window.addEventListener('resize', fixContainerHeight);
+window.addEventListener('load', fixContainerHeight);
