@@ -17,7 +17,9 @@ html, body {
 
 /* Container */
 .container {
-    @apply flex w-full h-screen overflow-hidden border max-w-[100vw];
+    @apply flex w-full overflow-hidden border max-w-[100vw];
+    height: 100vh;
+    height: -webkit-fill-available;
 }
 
 /* Sidebar */

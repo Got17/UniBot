@@ -27,3 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close Sidebar when clicking the close button
     closeBtn.addEventListener("click", toggleSidebar);
 });
+
+function fixContainerHeight() {
+    document.querySelector(".container").style.height = `${window.innerHeight}px`;
+}
+
+window.addEventListener('resize', fixContainerHeight);
+window.addEventListener('load', fixContainerHeight);
