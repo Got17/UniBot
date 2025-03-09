@@ -29,7 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fixContainerHeight() {
-    document.querySelector(".container").style.height = `${window.innerHeight}px`;
+    const container = document.querySelector('.container');
+    const viewportHeight = window.innerHeight;
+
+    container.style.height = `${viewportHeight}px`;
+    ontainer.style.minHeight = `${viewportHeight}px`;
 }
 
 window.addEventListener('resize', fixContainerHeight);
