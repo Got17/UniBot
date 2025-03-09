@@ -150,9 +150,9 @@ html, body {
 
 /* Chat Input */
 .chat-input-container {
-    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[600px] px-4 mb-3;
-    bottom: calc(env(safe-area-inset-bottom, 16px) + 8px); 
-    padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 8px); 
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[600px] px-4 mb-3 overflow-y-auto;
+    bottom: calc(env(safe-area-inset-bottom, 32px) + 8px); 
+    padding-bottom: calc(env(safe-area-inset-bottom, 32px) + 8px); 
 }
 
 .chat-input {
