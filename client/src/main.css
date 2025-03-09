@@ -23,6 +23,7 @@ body {
 /* Sidebar */
 .sidebar {
     @apply fixed top-0 left-0 w-[320px] h-screen bg-white p-5 flex flex-col justify-between border shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:relative md:translate-x-0 md:w-[320px];
+    height: 100svh;
 }
 
 .sidebar.open {
@@ -94,6 +95,7 @@ body {
     @apply flex-1 flex w-full h-screen flex-col bg-white shadow-lg rounded-lg overflow-hidden relative z-0;
     min-height: 100vh;
     min-height: 100svh;
+    height: 100svh;
 }
 
 /* Chat Header */
