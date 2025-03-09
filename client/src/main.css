@@ -19,9 +19,10 @@ html {
 
 /* Container */
 .container {
-    @apply flex w-full h-screen overflow-hidden border max-w-[100vw];
-    height: 100dvh;
-    min-height: 100dvh;
+    @apply flex w-full overflow-hidden border max-w-[100vw];
+    height: 100vh; 
+    min-height: 100vh;
+    height: -webkit-fill-available; 
 }
 
 /* Sidebar */

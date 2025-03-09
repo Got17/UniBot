@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function fixContainerHeight() {
     const container = document.querySelector('.container');
+    
+    let viewportHeight = window.innerHeight;
 
-    // Use visualViewport height if available, otherwise fallback to innerHeight
-    const viewportHeight = window.visualViewport
-        ? window.visualViewport.height
-        : window.innerHeight;
+    if (window.visualViewport) {
+        viewportHeight = window.visualViewport.height;
+    }
 
     container.style.height = `${viewportHeight}px`;
     container.style.minHeight = `${viewportHeight}px`;
 }
 
-// Run the function on load and resize
 window.addEventListener('resize', fixContainerHeight);
 window.addEventListener('load', fixContainerHeight);
