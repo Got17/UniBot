@@ -1,0 +1,7 @@
+/.vs
+/node_modules
+.vscode/
+/*/node_modules
+/*/.vs
+/dist
+/*/dist

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <script type="module" src="./toggleSidebar.js"></script>
+    <script type="module" src="./calendar.js"></script>
+    <script type="module" src="./themesSelection.js"></script>
+    <title>UniBot</title>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Sidebar Section -->
+        <aside class="sidebar open">
+            <div class="relative group">
+                <button class="close-btn flex">
+                    <i class="fa-solid fa-times text-2xl"></i> <!-- Close Icon -->
+                </button>
+                <span class="tooltip left-[25%] top-8">Close sidebar</span>
+            </div>
+            <div class="mt-10">
+                <button class="btn">Study Office Opening hour</button>
+                <button class="btn">IRO Opening hour</button>
+            </div>
+
+            <div class="links">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.uniduna.hu/" target="_blank"> 
+                            <i class="fa-solid fa-award"></i>
+                            <span class="link-element">University</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://nappw.dfad.duf.hu/hallgato_ng/login" target="_blank"> 
+                            <i class="fa-solid fa-award"></i>
+                            <span class="link-element">Neptun</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://v39.moodle.uniduna.hu/login/index.php" target="_blank"> 
+                            <i class="fa-solid fa-award"></i>
+                            <span class="link-element">Moodle</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="calendar">
+                <div class="calender-header">
+                    <div class="relative group">
+                        <button id="prev-month" class="prev-btn">
+                            <i class="fa-solid fa-angle-left cursor-pointer hover:bg-gray-200"></i>
+                        </button>
+                        <span class="tooltip left-1/2 bottom-full">Previous Month</span>
+                    </div>
+                    <div id="calendar-title" class="font-bold text-base"></div>
+                    <div class="relative group">
+                        <button id="next-month" class="next-btn">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+                        <span class="tooltip left-1/2 bottom-full">Next Month</span>
+                    </div>
+                </div>
+                <div class="weekdays">
+                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+                <div id="calendar-days" class="days"></div>
+            </div>
+
+        </aside>
+
+        <!-- Chat Section -->
+        <main class="chat-window">
+
+            <div class="chat-header">
+                <div class="relative group">
+                    <!-- Hamburger Menu Button (Visible on Mobile) -->
+                    <button class="menu-btn hidden">
+                        <i class="fa-solid fa-bars text-2xl"></i> <!-- FontAwesome Icon -->
+                    </button>
+                    <span class="tooltip left-16 top-10">Open Sidebar</span>
+                </div>
+                <div class="flex items-center justify-center">
+                    <img class="w-[40px] h-[40px] mr-4" src="./images/duna-logo.png" alt="uniduna-logo">
+                    <span class="text-lg font-medium sm:hidden">UniBot</span> <!-- Visible only on mobile -->
+                    <span class="text-lg font-medium hidden sm:inline">UniBot - a chatbot dedicated for student of UniDuna</span> <!-- Visible only on larger screens -->                
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class="mr-2">
+                        <select name="themes" id="theme-selector">
+                            <option value="dark">Dark</option>
+                            <option value="gruvbox">Gruvbox</option>                            
+                            <option value="light">Light</option>
+                            <option value="coffee">Coffee</option>
+                        </select>
+                    </div>
+                    <div class="relative group">
+                        <button class="help-btn">?</button>
+                        <span class="tooltip left-1/2 top-full">Help</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Messages (Scrollable) -->
+            <div class="chat-box">
+
+                <div class="message user">
+                    <p>Hello, where is the curriculum for computer science engineering?</p>
+                    <span class="user-icon">🐻</span>
+                </div>
+
+                <div class="message bot">
+                    <span class="bot-icon">🐶</span>
+                    <p>Hi there! The curriculum for the Department of Computer Science and Engineering is available here: 
+                        <a href="#">View Curriculum</a>
+                    </p>
+                </div>
+
+                <div class="message user">
+                    <p>Please tell me how to get to Building M from the library.</p>
+                    <span class="user-icon">🐻</span>
+                </div>
+
+                <div class="message bot">
+                    <span class="bot-icon">🐶</span>
+                    <p>The library is a 3-minute walk from Building M. The map is available here: 
+                        <a href="#">View Map</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="chat-input">
+                    <input type="text" placeholder="Message...">
+                    <!-- <button class="voice-btn"><i class="fas fa-microphone"></i></button> -->
+                     <div class="relative group">
+                        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                        <span class="tooltip left-1/2 bottom-4">Send</span>
+                     </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+</body>
+</html>
