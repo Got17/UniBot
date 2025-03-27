@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 month === today.getMonth() &&
                 year === today.getFullYear()
             ) {
-                dayElement.classList.add("bg-blue-500", "text-white", "font-bold");
+                dayElement.classList.add("bg-[var(--calendar-today)]", "font-bold");
             } else {
-                dayElement.classList.add("hover:bg-gray-200");
+                dayElement.classList.add("hover:bg-[var(--button-hover)]");
             }
 
             calendarDays.appendChild(dayElement);
