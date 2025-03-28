@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Roboto -->
@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-    <script type="module" src="./toggleSidebar.js"></script>
-    <script type="module" src="./calendar.js"></script>
-    <script type="module" src="./themesSelection.js"></script>
+    <script type="module" src="./javascript/calendar.js"></script>
+    <script type="module" src="./javascript/themesSelection.js"></script>
+    <script type="module" src="./javascript/toggleSidebar.js"></script>
     <title>UniBot</title>
 </head>
-<body>
+<body class="theme-dark">
     <div class="container">
 
         <!-- Sidebar Section -->
@@ -98,7 +98,10 @@
                     <span class="text-lg font-medium hidden sm:inline">UniBot - a chatbot dedicated for student of UniDuna</span> <!-- Visible only on larger screens -->                
                 </div>
                 <div class="flex justify-center items-center">
-                    <div class="mr-2">
+                    <div class="mr-4 relative inline-flex">
+                        <svg class="w-4 h-4 absolute top-0 right-0 m-[0.7rem] pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                          </svg>
                         <select name="themes" id="theme-selector" class="theme-selector">
                             <option value="dark">Dark</option>
                             <option value="gruvbox">Gruvbox</option>                            

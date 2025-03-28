@@ -2,74 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+  /* Theme: Dark (Default) */
+  .theme-dark {
     --bg: #18181a;
     --sidebar: #2a2a2a;
     --text: #f5f5f5;
     --button-default: #3a3a3a;
     --button-hover: #505050;
     --links: #4ea1f3;
-    --calendar-cell: #2e2e2e;
+    --calendar-cell: #242323;
     --calendar-today: #4ea1f3;
     --user-msg: #4ea1f3;
+    --user-text: var(--text);
     --bot-msg: #333333;
+    --bot-text: var(--text);
     --input-bg: #2e2e2e;
     --input-border: #d1d1d1;
     --send-button: #707070;
     --send-button-hover: #4ea1f3;
-    --help-icon: #f5f5f5;    
-    --select-hover: #3a3a3a;
-    --select-background: #4ea1f3;
-    --select-text: #fff;
-}
+    --help-icon: var(--text);    
+  }
 
 /* Theme: Gruvbox */
 .theme-gruvbox {
     --bg: #282828;
-    --user-msg: #fabd2f;
-    --bot-msg: #ebdbb2;
+    --sidebar: #3c3836;
+    --text: #ebdbb2;
+    --button-default: #d79921;
+    --button-hover: #fabd2f;
+    --links: #83a598;
+    --calendar-cell: #504945;
+    --calendar-today: #d65d0e;
+    --user-msg: #d79921;
+    --user-text: #f5f5f5;
+    --bot-msg: #928374;
+    --bot-text: #f5f5f5;
     --input-bg: #3c3836;
-    --text: #fbf1c7;
-  }
-
-  /* Theme: Dark */
-.theme-dark {
-    --bg: #18181a;
-    --sidebar: #2a2a2a;
-    --text: #f5f5f5;
-    --button-default: #3a3a3a;
-    --button-hover: #505050;
-    --links: #4ea1f3;
-    --calendar-cell: #2e2e2e;
-    --calendar-today: #4ea1f3;
-    --user-msg: #4ea1f3;
-    --bot-msg: #333333;
-    --input-bg: #2e2e2e;
-    --input-border: #d1d1d1;
+    --input-border: #928374;
     --send-button: #707070;
-    --send-button-hover: #4ea1f3;
-    --help-icon: #f5f5f5;    
-    --select-hover: #3a3a3a;
-    --select-background: #4ea1f3;
-    --select-text: #fff;
+    --send-button-hover: #b8bb26;
+    --help-icon: #ebdbb2;  
   }
 
 /* Theme: Light */
 .theme-light {
-    --bg: #f9fafb;
-    --user-msg: #2563eb;
-    --bot-msg: #d1d5db;
+    --bg: #ffffff;
+    --sidebar: #f0f0f0;
+    --text: #1e1e1e;
+    --button-default: #e0e0e0;
+    --button-hover: #d5d5d5;
+    --links: #1a73e8;
+    --calendar-cell: #eaeaea;
+    --calendar-today: #1a73e8;
+    --user-msg: #1a73e8;
+    --user-text: #f5f5f5;
+    --bot-msg: #f1f3f4;
+    --bot-text: #1e1e1e;
     --input-bg: #ffffff;
-    --text: #111827;
+    --input-border: #d1d1d1;
+    --send-button: #707070;
+    --send-button-hover: #1a73e8;
+    --help-icon: #1e1e1e; 
   }
   
 /* Theme: Coffee */
 .theme-coffee {
---bg: #3e2723;
---user-msg: #ffb74d;
---bot-msg: #d7ccc8;
---input-bg: #4e342e;
---text: #ffffff;
+    --bg: #2b2118;
+    --sidebar: #3a2f24;
+    --text: #f5efe6;
+    --button-default: #7b5e3a;
+    --button-hover: #a67845;
+    
+    --links: #d4a373;
+    --calendar-cell: #3e3429;
+    --calendar-today: #cb997e;
+    --user-msg: #d4a373;
+    --user-text: #f5efe6;
+    --bot-msg: #4e3b2a;
+    --bot-text: #f5efe6;
+    --input-bg: #3a2f24;
+    --input-border: #d4a373;
+    --send-button: #707070;
+    --send-button-hover: #d4a373;
+    --help-icon: #f5efe6; 
 }
 
 /* General Reset */
@@ -123,11 +138,11 @@ body {
 }
 
 .close-btn {
-    @apply absolute top-1 left-1 text-center px-3 py-1 rounded-full transition duration-300 ease-in-out hover:bg-[var(--button-hover)];
+    @apply absolute top-1 left-1 text-center px-3 py-1 rounded-full transition duration-300 ease-in-out hover:bg-[var(--button-hover)] focus:outline-none;
 }
 
 .btn {
-    @apply w-full p-3 mb-2 border rounded-3xl bg-[var(--button-default)] text-sm text-center transition duration-300 ease-in-out hover:bg-[var(--button-hover)];
+    @apply w-full p-3 mb-2 border border-[var(--text)] rounded-3xl bg-[var(--button-default)] text-sm text-center transition duration-300 ease-in-out hover:bg-[var(--button-hover)] focus:outline-none;
 }
 
 /* Links */
@@ -161,7 +176,7 @@ body {
 }
 
 .prev-btn, .next-btn {
-    @apply cursor-pointer hover:bg-[var(--button-hover)] p-2 rounded;
+    @apply cursor-pointer hover:bg-[var(--button-hover)] p-2 rounded focus:outline-none;
 }
 
 .weekdays, .days {
@@ -194,19 +209,19 @@ body {
 }
 
 .menu-btn {
-    @apply z-50 p-3 text-center px-3 py-[6px] rounded-full transition duration-300 ease-in-out  hover:bg-[var(--button-hover)];
+    @apply z-50 p-3 text-center px-3 py-[6px] rounded-full transition duration-300 ease-in-out  hover:bg-[var(--button-hover)] focus:outline-none;
 }
 
 .theme-selector {
-    @apply ml-4 p-1 rounded-md text-sm bg-[var(--button-default)] hover:bg-[var(--button-hover)] cursor-pointer;
+    @apply py-2 pl-4 pr-8 rounded-full text-sm bg-[var(--button-default)] hover:bg-[var(--button-hover)] cursor-pointer transition duration-300 ease-in-out appearance-none focus:outline-none;
 }
 
 .theme-selector option {
-    @apply cursor-pointer;
+    @apply bg-[var(--button-default)] text-[var(--text)];
 }
 
 .help-btn {
-    @apply bg-[var(--button-default)] px-[0.8rem] py-1 rounded-full cursor-pointer hover:bg-[var(--button-hover)] transition duration-300;
+    @apply bg-[var(--button-default)] px-[0.8rem] py-1 rounded-full cursor-pointer hover:bg-[var(--button-hover)] transition duration-300 focus:outline-none;
 }
 
 /* Chat Messages */
@@ -235,12 +250,12 @@ body {
 
 .user p {
     background-color: var(--user-msg);
-    color: #fff;
+    color: var(--user-text);
 }
 
 .bot p {
     background-color: var(--bot-msg);
-    color: var(--text);
+    color: var(--bot-text);
 }
 
 .user-icon, .bot-icon {
@@ -261,5 +276,5 @@ body {
 }
 
 .send-btn {
-    @apply bg-none border-none cursor-pointer text-[var(--send-button)] text-xl px-3 hover:text-[var(--send-button-hover)];
+    @apply bg-none border-none cursor-pointer text-[var(--send-button)] text-xl px-3 hover:text-[var(--send-button-hover)] focus:outline-none;
 }
