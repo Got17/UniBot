@@ -12,6 +12,7 @@
     --links: #4ea1f3;
     --calendar-cell: #242323;
     --calendar-today: #4ea1f3;
+    --today-text: var(--user-text);
     --user-msg: #4ea1f3;
     --user-text: var(--text);
     --bot-msg: #333333;
@@ -23,47 +24,27 @@
     --help-icon: var(--text);    
   }
 
-/* Theme: Gruvbox */
-.theme-gruvbox {
-    --bg: #282828;
-    --sidebar: #3c3836;
-    --text: #ebdbb2;
-    --button-default: #d79921;
-    --button-hover: #fabd2f;
-    --links: #83a598;
-    --calendar-cell: #504945;
-    --calendar-today: #d65d0e;
-    --user-msg: #d79921;
-    --user-text: #f5f5f5;
-    --bot-msg: #928374;
-    --bot-text: #f5f5f5;
-    --input-bg: #3c3836;
-    --input-border: #928374;
-    --send-button: #707070;
-    --send-button-hover: #b8bb26;
-    --help-icon: #ebdbb2;  
-  }
-
 /* Theme: Light */
 .theme-light {
-    --bg: #ffffff;
+    --bg: #f5f5f5;
     --sidebar: #f0f0f0;
-    --text: #1e1e1e;
-    --button-default: #e0e0e0;
-    --button-hover: #d5d5d5;
-    --links: #1a73e8;
-    --calendar-cell: #eaeaea;
-    --calendar-today: #1a73e8;
-    --user-msg: #1a73e8;
-    --user-text: #f5f5f5;
-    --bot-msg: #f1f3f4;
-    --bot-text: #1e1e1e;
-    --input-bg: #ffffff;
-    --input-border: #d1d1d1;
-    --send-button: #707070;
-    --send-button-hover: #1a73e8;
-    --help-icon: #1e1e1e; 
-  }
+    --text: #333333;
+    --button-default: #eaeaea;
+    --button-hover: #dcdcdc;
+    --links: #006ab1;
+    --calendar-cell: #eeeeee;
+    --calendar-today: #006ab1;
+    --today-text: #f5f5f5;
+    --user-msg: #dfefff;
+    --user-text: #2e2e2e;
+    --bot-msg: #ffffff;
+    --bot-text: #3a3a3a;
+    --input-bg: #fcfcfc;
+    --input-border: #cccccc;
+    --send-button: #666666;
+    --send-button-hover: #006ab1;
+    --help-icon: #4a4a4a; 
+}
   
 /* Theme: Coffee */
 .theme-coffee {
@@ -71,11 +52,11 @@
     --sidebar: #3a2f24;
     --text: #f5efe6;
     --button-default: #7b5e3a;
-    --button-hover: #a67845;
-    
+    --button-hover: #a67845;    
     --links: #d4a373;
     --calendar-cell: #3e3429;
     --calendar-today: #cb997e;
+    --today-text: var(--user-text);
     --user-msg: #d4a373;
     --user-text: #f5efe6;
     --bot-msg: #4e3b2a;
@@ -264,7 +245,7 @@ body {
 
 /* Chat Input */
 .chat-input-container {
-    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[600px] px-4 pb-4 overflow-y-auto;
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[600px] px-4 py-2 overflow-y-auto;
 }
 
 .chat-input {

@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize sidebar state based on screen size
     function initializeSidebar() {
+        const savedSidebarState = localStorage.getItem("sidebar");
+
         if (isMobile()) {
-            sidebar.classList.add("closed", "hidden");
-            sidebar.classList.remove("open");
-            menuBtn.classList.remove("hidden");
+            applySidebarState(savedSidebarState, sidebar, menuBtn);
         } else {
-            sidebar.classList.remove("closed", "hidden");
-            sidebar.classList.add("open");
-            menuBtn.classList.add("hidden");
+            applySidebarState(savedSidebarState, sidebar, menuBtn);
         }
     }
 
@@ -29,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sidebar.classList.remove("closed", "hidden");
             sidebar.classList.add("open");
             menuBtn.classList.add("hidden");
+            localStorage.setItem("sidebar", "open");
         } else {
             sidebar.classList.remove("open");
             sidebar.classList.add("closed");
@@ -38,11 +37,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 sidebar.classList.add("hidden");
                 menuBtn.classList.remove("hidden");
             }, 200);
+
+            localStorage.setItem("sidebar", "closed");
+        }
+    }
+
+    function applySidebarState(savedSidebarState, sidebar, menuBtn) {
+        if (savedSidebarState === "closed") {
+            sidebar.classList.add("closed", "hidden");
+            sidebar.classList.remove("open");
+            menuBtn.classList.remove("hidden");
+        } else {
+            sidebar.classList.remove("hidden", "closed");
+            sidebar.classList.add("open");
+            menuBtn.classList.add("hidden");
         }
     }
 
     // Initialize sidebar on page load
     initializeSidebar();
+    window.addEventListener("resize", initializeSidebar);
 
     // Open sidebar when clicking the hamburger menu
     menuBtn.addEventListener("click", toggleSidebar);
