@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function ChatHeader({ theme, setTheme, sidebarOpen, setSidebarOpen }){
 
     useEffect(() => {
-        // Save theme on change
+        // Save theme on changex
         localStorage.setItem("theme", theme);
     }, [theme]);
 
@@ -29,7 +29,7 @@ export default function ChatHeader({ theme, setTheme, sidebarOpen, setSidebarOpe
 
             {/* Title + Logo */}
             <div className="flex items-center justify-center">
-                <img className="w-[40px] h-[40px] mr-4" src="/images/duna-logo.png" alt="uniduna-logo" />
+                <img className="w-[40px] h-[40px] mr-4" src="{`${import.meta.env.BASE_URL}images/logo.png`}" alt="uniduna-logo" />
                 <span className="sm:hidden">UniBot</span>
                 <span className="hidden sm:inline">
                 UniBot - a chatbot dedicated for student of UniDuna
