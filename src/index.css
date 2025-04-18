@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  /* Theme: Dark (Default) */
+  .theme-dark {
+    --bg: #18181a;
+    --sidebar: #2a2a2a;
+    --text: #f5f5f5;
+    --button-default: #3a3a3a;
+    --button-hover: #505050;
+    --links: #4ea1f3;
+    --calendar-cell: #242323;
+    --calendar-today: #4ea1f3;
+    --today-text: var(--user-text);
+    --user-msg: #4ea1f3;
+    --user-text: var(--text);
+    --bot-msg: #333333;
+    --bot-text: var(--text);
+    --input-bg: #2e2e2e;
+    --input-border: #d1d1d1;
+    --send-button: #707070;
+    --send-button-hover: #4ea1f3;
+    --help-icon: var(--text);    
+  }
+
+/* Theme: Light */
+.theme-light {
+    --bg: #f5f5f5;
+    --sidebar: #f0f0f0;
+    --text: #333333;
+    --button-default: #eaeaea;
+    --button-hover: #dcdcdc;
+    --links: #006ab1;
+    --calendar-cell: #eeeeee;
+    --calendar-today: #006ab1;
+    --today-text: #f5f5f5;
+    --user-msg: #dfefff;
+    --user-text: #2e2e2e;
+    --bot-msg: #ffffff;
+    --bot-text: #3a3a3a;
+    --input-bg: #fcfcfc;
+    --input-border: #cccccc;
+    --send-button: #666666;
+    --send-button-hover: #006ab1;
+    --help-icon: #4a4a4a; 
+}
+  
+/* Theme: Coffee */
+.theme-coffee {
+    --bg: #2b2118;
+    --sidebar: #3a2f24;
+    --text: #f5efe6;
+    --button-default: #7b5e3a;
+    --button-hover: #a67845;    
+    --links: #d4a373;
+    --calendar-cell: #3e3429;
+    --calendar-today: #cb997e;
+    --today-text: var(--user-text);
+    --user-msg: #d4a373;
+    --user-text: #f5efe6;
+    --bot-msg: #4e3b2a;
+    --bot-text: #f5efe6;
+    --input-bg: #3a2f24;
+    --input-border: #d4a373;
+    --send-button: #707070;
+    --send-button-hover: #d4a373;
+    --help-icon: #f5efe6; 
+}
+
+/* General Reset */
+* {
+    @apply m-0 p-0 box-border font-roboto;
+}
+
+/* Apply theme variables */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Container */
+.container {
+    @apply flex w-full h-full overflow-hidden max-w-[100vw];
+    height: 100vh; 
+    min-height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    @apply absolute mb-2 w-max px-2 py-1 text-xs font-semibold text-white bg-black border-gray-300 border rounded-md opacity-0 transition-opacity duration-300 transform -translate-x-1/2 pointer-events-none;
+    max-width: 120px;         /* ✅ Limit width */
+  white-space: nowrap;      /* ✅ Prevent stretching */
+  text-align: center;
+  line-height: 1; 
+}
+
+.month-switcher {
+    @apply left-1/2 bottom-full after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-x-transparent after:border-b-transparent after:border-t-black
+}
+
+/* Show Tooltip on Hover */
+.group:hover .tooltip {
+    @apply opacity-100;
+}
+
+/* Sidebar */
+.sidebar {
+    @apply fixed top-0 left-0 w-[320px] h-screen p-5 flex flex-col justify-between shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:relative md:translate-x-0 md:w-[320px] bg-[var(--sidebar)];
+    height: 100svh;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0; 
+}
+
+.sidebar.hidden {
+    display: none;
+}
+
+.close-btn {
+    @apply absolute top-1 left-1 text-center px-3 py-1 rounded-full transition duration-300 ease-in-out hover:bg-[var(--button-hover)] focus:outline-none;
+}
+
+.btn {
+    @apply w-full p-3 mb-2 border border-[var(--text)] rounded-3xl bg-[var(--button-default)] text-sm text-center transition duration-300 ease-in-out hover:bg-[var(--button-hover)] focus:outline-none;
+}
+
+/* Links */
+.links {
+    @apply mt-1;
+}
+
+.links h3 {
+    @apply mb-2 text-lg font-semibold ;
+}
+
+.links li {
+    @apply mb-2;
+}
+
+.links a {
+    @apply flex items-center gap-2 hover:text-[var(--links)] transition duration-300;
+}
+
+.links .link-element {
+    @apply underline;
+}
+
+/* Calendar */
+.calendar {
+    @apply mt-2 p-4 bg-[var(--calendar-cell)] rounded-lg shadow-md;
+}
+
+.calendar-header {
+    @apply text-base flex justify-between items-center mb-3;
+}
+
+.calendar-header span {
+    @apply text-lg font-bold;
+}
+
+.prev-btn, .next-btn {
+    @apply cursor-pointer hover:bg-[var(--button-hover)] p-2 rounded focus:outline-none;
+}
+
+.weekdays, .days {
+    @apply grid grid-cols-7 text-center text-sm;
+}
+
+.weekdays {
+    @apply font-semibold mb-1;
+}
+
+.days {
+    @apply gap-1 text-sm;
+}
+
+/* Chat Window */
+.chat-window {
+    @apply flex-1 flex w-full h-screen flex-col shadow-lg overflow-hidden relative z-0;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: 100svh;
+}
+
+/* Chat Header */
+.chat-header {
+    @apply p-4 flex justify-between items-center shadow-md;
+}
+
+.chat-header div {
+    @apply font-semibold text-lg;
+}
+
+.menu-btn {
+    @apply z-50 p-3 text-center px-3 py-[6px] rounded-full transition duration-300 ease-in-out  hover:bg-[var(--button-hover)] focus:outline-none;
+}
+
+.theme-selector {
+    @apply py-2 pl-4 pr-8 rounded-full text-sm bg-[var(--button-default)] hover:bg-[var(--button-hover)] cursor-pointer transition duration-300 ease-in-out appearance-none focus:outline-none;
+}
+
+.theme-selector option {
+    @apply bg-[var(--button-default)] text-[var(--text)];
+}
+
+.help-btn {
+    @apply bg-[var(--button-default)] px-[0.8rem] py-1 rounded-full cursor-pointer hover:bg-[var(--button-hover)] transition duration-300 focus:outline-none;
+}
+
+/* Chat Messages */
+.chat-box {
+    @apply flex-1 overflow-y-auto px-4 py-6 space-y-4;
+    max-height: calc(100vh - 140px);
+    max-height: calc(100svh - 140px);
+}
+
+/* Chat Messages Bubbles */
+.message {
+    @apply flex items-center;
+}
+
+.user {
+    @apply justify-end text-left;
+}
+
+.bot {
+    @apply justify-start text-left;
+}
+
+.message p {
+    @apply px-5 py-3 max-w-[75%] rounded-3xl ;
+}
+
+.user p {
+    background-color: var(--user-msg);
+    color: var(--user-text);
+}
+
+.bot p {
+    background-color: var(--bot-msg);
+    color: var(--bot-text);
+}
+
+.user-icon, .bot-icon {
+    @apply text-2xl mx-2;
+}
+
+/* Chat Input */
+.chat-input-container {
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[600px] px-4 py-2 overflow-y-auto;
+}
+
+.chat-input {
+    @apply flex items-center p-3 bg-[var(--input-bg)] border border-[var(--input-border)] rounded-2xl shadow-md;
+}
+
+.chat-input input {
+    @apply flex-1 p-3 border-none outline-none bg-transparent;
+}
+
+.send-btn {
+    @apply bg-none border-none cursor-pointer text-[var(--send-button)] text-xl px-3 hover:text-[var(--send-button-hover)] focus:outline-none;
+}
