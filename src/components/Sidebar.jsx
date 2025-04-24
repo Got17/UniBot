@@ -19,6 +19,9 @@ export default function Sidebar({ open, setOpen }) {
     localStorage.setItem("sidebar", open ? "open" : "closed");
   }, [open]);
 
+
+  const studyOffice = () => {}
+
   return (
     <aside className={`sidebar ${open ? "open" : "closed hidden"} ${!open && isMobile ? "hidden" : ""}`}>
       <div className="relative group">
@@ -29,30 +32,29 @@ export default function Sidebar({ open, setOpen }) {
       </div>
 
       <div className="mt-10">
-        <button className="btn">Study Office Opening hour</button>
-        <button className="btn">IRO Opening hour</button>
+        <button className="btn" onClick={studyOffice}>Study Office Opening hour</button>
+        <button className="btn">International Office Opening hour</button>
       </div>
 
       <div className="links">
         <h3>Useful Links</h3>
+        <div>
+          <a href="https://www.uniduna.hu/" target="_blank" className="display-inline-block"> 
+            <span className="link-element">University</span>
+          </a> 
+          <a href="https://nappw.dfad.duf.hu/hallgato_ng/login" target="_blank" className="display-inline-block">
+            <span className="link-element">Neptun</span>
+          </a> 
+          <a href="https://v39.moodle.uniduna.hu/login/index.php" target="_blank" className="display-inline-block">
+            <span className="link-element">Moodle</span>
+          </a>
+        </div>
         <ul>
           <li>
-            <a href="https://www.uniduna.hu/" target="_blank">
-              <i className="fa-solid fa-award"></i>
-              <span className="link-element">University</span>
-            </a>
+            
           </li>
           <li>
-            <a href="https://nappw.dfad.duf.hu/hallgato_ng/login" target="_blank">
-              <i className="fa-solid fa-award"></i>
-              <span className="link-element">Neptun</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://v39.moodle.uniduna.hu/login/index.php" target="_blank">
-              <i className="fa-solid fa-award"></i>
-              <span className="link-element">Moodle</span>
-            </a>
+            
           </li>
         </ul>
       </div>
