@@ -219,10 +219,30 @@ body {
 
 /* Chat Messages */
 .chat-box {
-    @apply flex-1 overflow-y-auto px-4 py-6 space-y-4;
+    @apply flex-1 overflow-y-auto px-4 py-6 space-y-4 pb-12;
     max-height: calc(100vh - 140px);
     max-height: calc(100svh - 140px);
 }
+
+.markdown a {
+@apply underline text-blue-400 hover:text-blue-600;
+}
+
+.markdown strong {
+@apply font-bold;
+}
+
+.markdown em {
+@apply italic;
+}
+
+.markdown code {
+@apply font-mono bg-gray-700 px-1 rounded text-sm;
+}
+
+.markdown {
+    @apply break-words max-w-[75%];
+  }
 
 /* Chat Messages Bubbles */
 .message {
@@ -238,7 +258,7 @@ body {
 }
 
 .message p {
-    @apply px-5 py-3 max-w-[75%] rounded-3xl ;
+    @apply px-2 py-2 rounded-3xl ;
 }
 
 .user p {

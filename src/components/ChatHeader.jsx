@@ -60,11 +60,6 @@ export default function ChatHeader({ theme, setTheme, sidebarOpen, setSidebarOpe
                     <option value="coffee">Coffee</option>
                 </select>
                 </div>
-
-                <div className="relative group">
-                <button className="help-btn">?</button>
-                <span className="tooltip left-1/2 top-full">Help</span>
-                </div>
             </div>
         </div>
     );

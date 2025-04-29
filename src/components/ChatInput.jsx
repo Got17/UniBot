@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ChatInput({ onSend }) {
   const [input, setInput] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   const handleSend = () => {
     if (input.trim() === "") return;
     onSend(input);
     setInput("");
+
+    inputRef.current?.focus();
   };
 
   const handleKeyDown = (e) => {
@@ -17,6 +24,7 @@ export default function ChatInput({ onSend }) {
     <div className="chat-input-container">
       <div className="chat-input">
         <input
+          ref={inputRef}
           type="text"
           placeholder="Message..."
           value={input}
