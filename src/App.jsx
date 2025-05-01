@@ -39,13 +39,40 @@ export default function App() {
         { type: "bot", text: "Thinking...", icon: "🐶", isLoading: true }
       ]);
     }, 1000);
-  
-    try {
-      const res = await fetch(`${API_URL}/chat`, { // Change this to your deployed API
+
+    const fetchData = async (controller) => {
+      return await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: inputText }),
+        signal: controller.signal,
       });
+    };
+
+    let controller = new AbortController();
+    let retryOnce = false;
+
+    const tryFetch = async () => {
+      try {
+        const timeout = setTimeout(() => controller.abort(), 15000);
+        const res = await fetchData(controller);
+        clearTimeout(timeout);
+        return res;
+      } catch (err) {
+        if (!retryOnce && err.name === "AbortError") {
+          retryOnce = true;
+          controller = new AbortController();
+          const retryRes = await fetchData(controller);
+          return retryRes;
+        } else {
+          throw err;
+        }
+      }
+    };
+        
+    try { 
+
+      const res = await tryFetch();
 
       clearTimeout(loadingId);
   
@@ -61,7 +88,7 @@ export default function App() {
       setMessages((prev) => [...prev, botReply]);
     } catch (error) {
       clearTimeout(loadingId);
-      
+
       // Remove loading message if it was added
       setMessages((prev) => prev.filter(msg => !msg.isLoading));
       

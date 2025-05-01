@@ -249,7 +249,7 @@ body {
 
   .scroll-btn {
     @apply absolute left-1/2 bottom-24 transform -translate-x-1/2 
-           px-3 py-2 bg-[var(--scroll-button)] text-white rounded-full shadow-lg 
+           px-[0.7rem] py-[0.35rem] bg-[var(--scroll-button)] text-white rounded-full shadow-lg 
            transition duration-300 ease-in-out hover:bg-[var(--button-hover)] 
            focus:outline-none opacity-0 z-50 cursor-pointer;
   }
