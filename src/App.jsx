@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Sidebar from "./components/Sidebar";
 import ChatHeader from "./components/ChatHeader";
 import ChatBox from "./components/ChatBox";
@@ -73,13 +73,60 @@ export default function App() {
     }
   };
 
+  const chatRef = useRef(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  // Scroll to the bottom of the chat when new messages are added
+  // This effect runs every time the messages array changes
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTo({
+        top: chatRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [messages]);
+
+  // Show the scroll button when the user scrolls up
+  const handleScroll = () => {
+    const threshold  = 75; 
+
+    if (!chatRef.current) return;
+
+    if (chatRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = chatRef.current;
+      setShowScrollButton(scrollTop + clientHeight < scrollHeight - threshold);
+    }
+  };
+
+  // Add event listener to the chat box for scroll events
+  useEffect(() => {
+    const chaBox = chatRef.current;
+
+    chaBox?.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      chaBox?.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  let scrollToBottom = () => {
+    if (chatRef.current) {
+      chatRef.current.scrollTo({
+        top: chatRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+    setTimeout(() => setShowScrollButton(false), 500);
+  }
+
   return (
     <div className="container">
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} handleSend={handleSend}/>
       <main className="chat-window">
         <ChatHeader theme={theme} setTheme={setTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <ChatBox messages={messages} />
-        <ChatInput onSend={handleSend} />
+        <ChatBox messages={messages} chatRef={chatRef}/>
+        <ChatInput onSend={handleSend} scrollToBottom={scrollToBottom} showScrollButton={showScrollButton} />
       </main>
     </div>
   );

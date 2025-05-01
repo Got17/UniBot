@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function ChatInput({ onSend }) {
+export default function ChatInput({ onSend, scrollToBottom, showScrollButton }) {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
 
@@ -31,13 +31,19 @@ export default function ChatInput({ onSend }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <div className="relative group-tooltip">
-          <button className="send-btn btn" onClick={handleSend}>
+        <button title="Send" className="send-btn btn" onClick={handleSend}>
             <i className="fas fa-paper-plane btn"></i>
           </button>
-          <span className="tooltip left-1/2 bottom-4">Send</span>
-        </div>
       </div>
+      <button 
+        aria-label="Scroll to bottom"
+        title="Scroll to bottom" 
+        onClick={() => {scrollToBottom()}} 
+        className={`scroll-btn ${showScrollButton ? 'visible' : 'hidden'}`}
+      >
+        <i className="fa-solid fa-arrow-down"></i>
+      </button>
+      
     </div>
   );
 }

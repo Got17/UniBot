@@ -1,18 +1,6 @@
 import { marked } from "marked";
-import { useRef, useEffect } from "react";
 
-export default function ChatBox({ messages }) {
-  const chatRef = useRef(null);
-
-  useEffect(() => {
-    if (chatRef.current) {
-      chatRef.current.scrollTo({
-        top: chatRef.current.scrollHeight,
-        behavior: 'smooth',
-      });
-    }
-  }, [messages]);
-
+export default function ChatBox({ messages, chatRef }) { 
   return (
     <div className="chat-box" ref={chatRef}>
       {messages.map((msg, idx) => (

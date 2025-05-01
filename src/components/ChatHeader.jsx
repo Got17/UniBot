@@ -16,16 +16,13 @@ export default function ChatHeader({ theme, setTheme, sidebarOpen, setSidebarOpe
 
     return (
         <div className="chat-header">
-            <div className="relative group-tooltip">
-                {/* Hamburger Menu for Mobile */}
-                <button 
-                    className={`menu-btn btn ${sidebarOpen ? 'hidden' : ''}`}
-                    onClick={() => setSidebarOpen(true)}
-                >
-                    <i className="fa-solid fa-bars text-2xl"></i>
-                </button>
-                <span className="tooltip left-16 top-10">Open Sidebar</span>
-            </div>
+            <button 
+                title="Open sidebar"
+                className={`menu-btn btn ${sidebarOpen ? 'hidden' : ''}`}
+                onClick={() => setSidebarOpen(true)}
+            >
+                <i className="fa-solid fa-bars text-2xl"></i>
+            </button>
 
             {/* Title + Logo */}
             <div className="flex items-center justify-center">

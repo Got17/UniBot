@@ -26,11 +26,10 @@ export default function Sidebar({ open, setOpen, handleSend }) {
 
   return (
     <aside className={`sidebar ${open ? "open" : "closed hidden"} ${!open && isMobile ? "hidden" : ""}`}>
-      <div className="relative group-tooltip">
-        <button className="close-btn btn flex" onClick={() => setOpen(false)}>
+      <div className="relative">
+        <button title="Close sidebar" className="close-btn btn flex" onClick={() => setOpen(false)}>
           <i className="fa-solid fa-times text-2xl"></i>
         </button>
-        <span className="tooltip left-[25%] top-8">Close sidebar</span>
       </div>
 
       <div className="mt-10">

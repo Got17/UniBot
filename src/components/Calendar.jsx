@@ -76,15 +76,15 @@ export default function Calendar() {
     return (
         <div className="calendar">
             <div className="calendar-header">
-                <button id="prev-month" className="prev-btn btn" onClick={handlePrev}>
+                <button title="Previous month" id="prev-month" className="prev-btn btn" onClick={handlePrev}>
                     <i className="fa-solid fa-angle-left cursor-pointer"></i>
                 </button>
 
-                <div id="calendar-title" className="font-bold text-base cursor-pointer" onClick={handleToday}>
+                <div title="Today" id="calendar-title" className="font-bold text-base cursor-pointer" onClick={handleToday}>
                     {title}
                 </div>
 
-                <button id="next-month" className="next-btn btn" onClick={handleNext}>
+                <button title="Next month" id="next-month" className="next-btn btn" onClick={handleNext}>
                     <i className="fa-solid fa-angle-right"></i>
                 </button>
             </div>
