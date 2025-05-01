@@ -71,25 +71,17 @@ export default function Calendar() {
     return (
         <div className="calendar">
             <div className="calendar-header">
-                <div className="relative group">
-                    <button id="prev-month" className="prev-btn" onClick={handlePrev}>
-                        <i className="fa-solid fa-angle-left cursor-pointer"></i>
-                    </button>
-                    <span className="tooltip month-switcher">Previous Month</span>
-                </div>
+                <button id="prev-month" className="prev-btn" onClick={handlePrev}>
+                    <i className="fa-solid fa-angle-left cursor-pointer"></i>
+                </button>
 
                 <div id="calendar-title" className="font-bold text-base">
                     {title}
                 </div>
 
-                <div className="relative group">
-                    <button id="next-month" className="next-btn" onClick={handleNext}>
-                        <i className="fa-solid fa-angle-right"></i>
-                    </button>
-                    <div className="month-switcher tooltip"> 
-                        Next Month
-                    </div>
-                </div>
+                <button id="next-month" className="next-btn" onClick={handleNext}>
+                    <i className="fa-solid fa-angle-right"></i>
+                </button>
             </div>
 
             <div className="weekdays">

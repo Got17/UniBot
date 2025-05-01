@@ -28,19 +28,6 @@ export default function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // const handleSend = (inputText) => {
-  //   const newMessages = [
-  //     ...messages,
-  //     { type: "user", text: inputText, icon: "🐻" },
-  //     {
-  //       type: "bot",
-  //       text: `Sorry, I don't understand yet. Please try again later.`,
-  //       icon: "🐶",
-  //     },
-  //   ];
-  //   setMessages(newMessages);
-  // };
-
   const handleSend = async (inputText) => {
     const userMessage = { type: "user", text: inputText, icon: "🐻" };
     setMessages((prev) => [...prev, userMessage]);
@@ -88,7 +75,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
+      <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} handleSend={handleSend}/>
       <main className="chat-window">
         <ChatHeader theme={theme} setTheme={setTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <ChatBox messages={messages} />
