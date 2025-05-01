@@ -26,24 +26,24 @@
 
 /* Theme: Light */
 .theme-light {
-    --bg: #f5f5f5;
-    --sidebar: #f0f0f0;
-    --text: #333333;
-    --button-default: #eaeaea;
-    --button-hover: #dcdcdc;
-    --links: #006ab1;
-    --calendar-cell: #eeeeee;
-    --calendar-today: #006ab1;
-    --today-text: #f5f5f5;
-    --user-msg: #dfefff;
-    --user-text: #2e2e2e;
-    --bot-msg: #ffffff;
-    --bot-text: #3a3a3a;
-    --input-bg: #fcfcfc;
-    --input-border: #cccccc;
-    --send-button: #666666;
-    --send-button-hover: #006ab1;
-    --help-icon: #4a4a4a; 
+    --bg: #FAF9F6;                /* slightly darker than #FAF9F6 */
+    --sidebar: #e6e6e6;           /* a softer gray */
+    --text: #2a2a2a;              /* slightly darker text for contrast */
+    --button-default: #e0e0e0;
+    --button-hover: #cfcfcf;
+    --links: #005b9a;             /* slightly muted blue */
+    --calendar-cell: #e5e5e5;
+    --calendar-today: #005b9a;    /* match link tone */
+    --today-text: #f0f0f0;
+    --user-msg: #d0e6ff;          /* calmer blue */
+    --user-text: #2c2c2c;
+    --bot-msg: #e4e4e4;           /* very light gray instead of pure white */
+    --bot-text: #333333;
+    --input-bg: #f7f7f7;
+    --input-border: #bbbbbb;
+    --send-button: #555555;
+    --send-button-hover: #005b9a;
+    --help-icon: #3a3a3a;
 }
   
 /* Theme: Coffee */
@@ -148,7 +148,7 @@ body {
 }
 
 .link-element {
-    @apply underline;
+    @apply underline hover:text-[var(--links)];
 }
 
 .links-separator {

@@ -34,8 +34,8 @@ export default function Sidebar({ open, setOpen, handleSend }) {
       </div>
 
       <div className="mt-10">
-        <button className="office-btn btn" onClick={() => handleSend("when is the opening hours of study office")}>Study Office Opening hour</button>
-        <button className="office-btn btn" onClick={() => handleSend("when is the opening hours of international office")}>International Office Opening hour</button>
+        <button className="office-btn" onClick={() => handleSend("when is the opening hours of study office")}>Study Office Opening hour</button>
+        <button className="office-btn" onClick={() => handleSend("when is the opening hours of international office")}>International Office Opening hour</button>
       </div>
 
       <div className="links">
