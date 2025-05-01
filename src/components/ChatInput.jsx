@@ -31,9 +31,9 @@ export default function ChatInput({ onSend }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <div className="relative group">
-          <button className="send-btn" onClick={handleSend}>
-            <i className="fas fa-paper-plane"></i>
+        <div className="relative group-tooltip">
+          <button className="send-btn btn" onClick={handleSend}>
+            <i className="fas fa-paper-plane btn"></i>
           </button>
           <span className="tooltip left-1/2 bottom-4">Send</span>
         </div>

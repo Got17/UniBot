@@ -102,7 +102,7 @@ body {
 }
 
 /* Show Tooltip on Hover */
-.group:hover .tooltip {
+.group-tooltip:hover .tooltip {
     @apply opacity-100;
 }
 
@@ -130,7 +130,7 @@ body {
     @apply absolute top-1 left-1 text-center px-3 py-1 rounded-full transition duration-300 ease-in-out hover:bg-[var(--button-hover)] focus:outline-none;
 }
 
-.btn {
+.office-btn {
     @apply w-full p-3 mb-2 border border-[var(--text)] rounded-3xl bg-[var(--button-default)] text-sm text-center transition duration-300 ease-in-out hover:bg-[var(--button-hover)] focus:outline-none;
 }
 
@@ -147,12 +147,16 @@ body {
     @apply mb-2;
 }
 
-.links a {
-    @apply flex items-center gap-2 hover:text-[var(--links)] transition duration-300;
+.link-element {
+    @apply underline;
 }
 
-.links .link-element {
-    @apply underline;
+.links-separator {
+    @apply mx-1 text-[var(--text)];
+}
+
+.links-container {
+    @apply flex flex-row gap-2;
 }
 
 /* Calendar */
@@ -211,10 +215,6 @@ body {
 
 .theme-selector option {
     @apply bg-[var(--button-default)] text-[var(--text)];
-}
-
-.help-btn {
-    @apply bg-[var(--button-default)] px-[0.8rem] py-1 rounded-full cursor-pointer hover:bg-[var(--button-hover)] transition duration-300 focus:outline-none;
 }
 
 /* Chat Messages */
@@ -295,3 +295,17 @@ body {
 .send-btn {
     @apply bg-none border-none cursor-pointer text-[var(--send-button)] text-xl px-3 hover:text-[var(--send-button-hover)] focus:outline-none;
 }
+
+@media (hover: none) {
+    .group-tooltip:hover .tooltip {
+      opacity: 0 !important;
+    }
+  
+    .btn:hover,
+    .theme-selector:hover,
+    .links-element:hover {
+      background-color: inherit !important;
+      color: inherit !important;
+      opacity: 1 !important;
+    }
+  }

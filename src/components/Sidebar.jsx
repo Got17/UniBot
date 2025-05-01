@@ -1,8 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "./Calendar";
 
 export default function Sidebar({ open, setOpen, handleSend }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const links = [
+    { name: "University", url: "https://www.uniduna.hu/" },
+    { name: "Neptun", url: "https://nappw.dfad.duf.hu/hallgato_ng/login" },
+    { name: "Moodle", url: "https://v39.moodle.uniduna.hu/login/index.php" },
+  ];
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -13,7 +18,7 @@ export default function Sidebar({ open, setOpen, handleSend }) {
   useEffect(() => {
     const saved = localStorage.getItem("sidebar");
     if (saved === "closed") setOpen(false);
-  }, []);
+  }, [setOpen]);
 
   useEffect(() => {
     localStorage.setItem("sidebar", open ? "open" : "closed");
@@ -21,39 +26,30 @@ export default function Sidebar({ open, setOpen, handleSend }) {
 
   return (
     <aside className={`sidebar ${open ? "open" : "closed hidden"} ${!open && isMobile ? "hidden" : ""}`}>
-      <div className="relative group">
-        <button className="close-btn flex" onClick={() => setOpen(false)}>
+      <div className="relative group-tooltip">
+        <button className="close-btn btn flex" onClick={() => setOpen(false)}>
           <i className="fa-solid fa-times text-2xl"></i>
         </button>
         <span className="tooltip left-[25%] top-8">Close sidebar</span>
       </div>
 
       <div className="mt-10">
-        <button className="btn" onClick={() => handleSend("when is the opening hours of study office")}>Study Office Opening hour</button>
-        <button className="btn" onClick={() => handleSend("when is the opening hours of international office")}>International Office Opening hour</button>
+        <button className="office-btn btn" onClick={() => handleSend("when is the opening hours of study office")}>Study Office Opening hour</button>
+        <button className="office-btn btn" onClick={() => handleSend("when is the opening hours of international office")}>International Office Opening hour</button>
       </div>
 
       <div className="links">
         <h3>Useful Links</h3>
-        <div>
-          <a href="https://www.uniduna.hu/" target="_blank" className="display-inline-block"> 
-            <span className="link-element">University</span>
-          </a> 
-          <a href="https://nappw.dfad.duf.hu/hallgato_ng/login" target="_blank" className="display-inline-block">
-            <span className="link-element">Neptun</span>
-          </a> 
-          <a href="https://v39.moodle.uniduna.hu/login/index.php" target="_blank" className="display-inline-block">
-            <span className="link-element">Moodle</span>
-          </a>
+        <div className="links-container">
+          {links.map((link, index) => (
+            <React.Fragment key={index}>
+              <a href={link.url} target="_blank" rel="noopener noreferrer" className="display-inline-block">
+                <span className="link-element">{link.name}</span>
+              </a>
+              {index < links.length - 1 && <span className="links-separator">|</span>}
+            </React.Fragment>           
+          ))}
         </div>
-        <ul>
-          <li>
-            
-          </li>
-          <li>
-            
-          </li>
-        </ul>
       </div>
 
       <Calendar />

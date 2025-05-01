@@ -68,18 +68,23 @@ export default function Calendar() {
         setCurrentDate(newDate);
     }
 
+    const handleToday = () => {
+        const today = new Date();
+        setCurrentDate(today);
+    }
+
     return (
         <div className="calendar">
             <div className="calendar-header">
-                <button id="prev-month" className="prev-btn" onClick={handlePrev}>
+                <button id="prev-month" className="prev-btn btn" onClick={handlePrev}>
                     <i className="fa-solid fa-angle-left cursor-pointer"></i>
                 </button>
 
-                <div id="calendar-title" className="font-bold text-base">
+                <div id="calendar-title" className="font-bold text-base cursor-pointer" onClick={handleToday}>
                     {title}
                 </div>
 
-                <button id="next-month" className="next-btn" onClick={handleNext}>
+                <button id="next-month" className="next-btn btn" onClick={handleNext}>
                     <i className="fa-solid fa-angle-right"></i>
                 </button>
             </div>

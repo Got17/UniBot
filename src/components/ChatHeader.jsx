@@ -16,10 +16,10 @@ export default function ChatHeader({ theme, setTheme, sidebarOpen, setSidebarOpe
 
     return (
         <div className="chat-header">
-            <div className="relative group">
+            <div className="relative group-tooltip">
                 {/* Hamburger Menu for Mobile */}
                 <button 
-                    className={`menu-btn ${sidebarOpen ? 'hidden' : ''}`}
+                    className={`menu-btn btn ${sidebarOpen ? 'hidden' : ''}`}
                     onClick={() => setSidebarOpen(true)}
                 >
                     <i className="fa-solid fa-bars text-2xl"></i>
